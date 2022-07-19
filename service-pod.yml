@@ -1,0 +1,1 @@
+kubectl expose deployment my-deployment-50001 --name my-np-service --type NodePort --protocol TCP --port 80 --target-port 50001

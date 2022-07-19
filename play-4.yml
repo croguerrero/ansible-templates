@@ -1,0 +1,11 @@
+---
+- hosts: localhost  
+  tasks:
+    - name: creates users files
+      file:
+        path: /tmp/ansible-{{ item }}
+        state: touch
+      loop:
+        - sammy
+        - erika
+        - brian

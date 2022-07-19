@@ -1,0 +1,24 @@
+---
+- hosts: localhost
+  become: yes
+  vars:
+    page_title: My Landing Page SLope IT y ahora que?
+    page_description: Welcome to Slope IT.
+  tasks:
+            
+    - name: Apply Page Template
+      template:
+        src: landing-page.html.j2
+        dest: /var/www/html/index.html
+
+    - name: Restart Apache
+      ansible.builtin.service:
+        name: apache2
+        state: restarted
+        enabled: true
+      
+    - name: Allow all access to tcp port 80
+      ufw:
+        rule: allow
+        port: '80'
+        proto: tcp
