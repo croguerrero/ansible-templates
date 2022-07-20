@@ -45,3 +45,7 @@ ansible all -b -m service -a "name=auditd state=started enabled=yes"
 # Ensure auditd is configured to record events that affect the system's security
 ansible all -i inventory -m setup -a "filter=*ipv4*" -u croguerrero -k
 ansible localhost -m setup -a "filter=*ipv4*" -u croguerrero
+
+# Encript passwords on Ansible
+ansible-vault encrypt /home/ansible/confidential 
+ansible-playbook --ask-vault-pass /home/ansible/webserver.yml
