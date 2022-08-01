@@ -1,0 +1,14 @@
+---
+- hosts: server
+  remote_user: ubuntu
+  tasks: 
+    - name: Delete Jenkins
+      become: yes
+      shell: sudo rm -rf /var/lib/jenkins
+      register: jenkins_deleted
+
+    - name: UnInstall Jenkins
+      become: yes
+      apt:
+        name: jenkins
+        state: absent

@@ -1,0 +1,10 @@
+# Set timer for a specific time
+# Example:
+
+---
+- hosts: server
+  become: yes
+  tasks:
+  - name: set timezone to Asia/Tokyo
+    timezone:
+     name: Africa/Bujumbura

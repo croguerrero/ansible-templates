@@ -49,3 +49,6 @@ ansible localhost -m setup -a "filter=*ipv4*" -u croguerrero
 # Encript passwords on Ansible
 ansible-vault encrypt /home/ansible/confidential 
 ansible-playbook --ask-vault-pass /home/ansible/webserver.yml
+
+# COnfigure EC2 instances with Ansible
+ansible-playbook -i inventory updatedocker.yml --key-file webserver.pem

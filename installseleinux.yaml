@@ -1,0 +1,8 @@
+---
+- hosts: server
+  users:
+    - tony  
+    - steve
+    - banner
+  remote_user: "{{ users[0] }}"
+  tasks: 
